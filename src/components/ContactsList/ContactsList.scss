@@ -1,0 +1,16 @@
+.ContactsList {
+  display: flex;
+  margin: 0;
+  width: 400px;
+  padding: 20px;
+  flex-direction: column;
+  border: 2px solid rebeccapurple;
+
+  input {
+    margin-bottom: 20px;
+  }
+
+  li + li {
+    margin-top: 10px;
+  }
+}
