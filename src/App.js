@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Spinner from 'react-bootstrap/Spinner';
 
 import ContactsList from './components/ContactsList';
 import ContactsListItem from './components/ContactListItem';
@@ -9,6 +10,7 @@ import Filter from './components/Filter';
 import contactsOperations from './redux/contacts/contacts-operations';
 
 import './App.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   componentDidMount() {
@@ -27,7 +29,7 @@ class App extends Component {
             <Filter />
 
             <ContactsList>
-              {this.props.isLoading && <h1>Loading...</h1>}
+              {this.props.isLoading && <Spinner animation="border" />}
               <ContactsListItem />
             </ContactsList>
           </>
