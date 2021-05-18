@@ -6,9 +6,12 @@ import ContactsListItem from './components/ContactListItem';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 
+import contactsOperations from './redux/contacts/contacts-operations';
+
 import './App.scss';
 
-function App({ items }) {
+function App({ items, fetchItems }) {
+  fetchItems();
   return (
     <div className="phonebook">
       <h1>Phonebook</h1>
@@ -32,4 +35,8 @@ const mapStateToProps = state => ({
   items: state.contacts.items,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  fetchItems: () => dispatch(contactsOperations.fetchContacts()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

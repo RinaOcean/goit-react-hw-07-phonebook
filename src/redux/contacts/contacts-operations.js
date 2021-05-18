@@ -46,6 +46,7 @@ const removeContact = contactID => dispatch => {
 };
 
 export default {
+  fetchContacts,
   addContact,
   removeContact,
   fetchContacts,
