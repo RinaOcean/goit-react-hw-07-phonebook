@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ContactsList from './components/ContactsList';
@@ -10,29 +10,37 @@ import contactsOperations from './redux/contacts/contacts-operations';
 
 import './App.scss';
 
-function App({ items, fetchItems }) {
-  fetchItems();
-  return (
-    <div className="phonebook">
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchItems();
+  }
 
-      {items.length > 0 ? (
-        <>
-          <Filter />
-          <ContactsList>
-            <ContactsListItem />
-          </ContactsList>
-        </>
-      ) : (
-        <span>You have no contacts yet </span>
-      )}
-    </div>
-  );
+  render() {
+    return (
+      <div className="phonebook">
+        <h1>Phonebook</h1>
+        <ContactForm />
+        <h2>Contacts</h2>
+
+        {this.props.items.length > 0 ? (
+          <>
+            <Filter />
+
+            <ContactsList>
+              {this.props.isLoading && <h1>Loading...</h1>}
+              <ContactsListItem />
+            </ContactsList>
+          </>
+        ) : (
+          <span>You have no contacts yet </span>
+        )}
+      </div>
+    );
+  }
 }
 const mapStateToProps = state => ({
   items: state.contacts.items,
+  isLoading: state.contacts.loading,
 });
 
 const mapDispatchToProps = dispatch => ({
