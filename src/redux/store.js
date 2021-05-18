@@ -1,11 +1,11 @@
 import {
-  combineReducers,
+  // combineReducers,
   configureStore,
   getDefaultMiddleware,
 } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import {
-  persistStore,
+  // persistStore,
   // persistReducer,
   FLUSH,
   REHYDRATE,
@@ -29,6 +29,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
+
   logger,
 ];
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../redux/contacts/contacts-actions';
+import contactsOperations from '../../redux/contacts/contacts-operations';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import './ContactForm.scss';
@@ -79,7 +79,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchFromProps = dispatch => ({
   onSubmit: ({ name, number }) =>
-    dispatch(actions.addContact({ name, number })),
+    dispatch(contactsOperations.addContact({ name, number })),
 });
 
 export default connect(mapStateToProps, mapDispatchFromProps)(ContactForm);
