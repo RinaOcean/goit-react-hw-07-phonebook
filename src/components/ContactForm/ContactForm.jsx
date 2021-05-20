@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addContact } from '../../redux/contacts/contacts-operations';
-import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-import { getItems } from '../../redux/contacts/contacts-selectors';
+import PropTypes from 'prop-types';
+import { addContact, getItems } from '../../redux/contacts';
 
 import './ContactForm.scss';
 
