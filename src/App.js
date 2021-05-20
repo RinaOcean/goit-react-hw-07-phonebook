@@ -7,7 +7,7 @@ import ContactsListItem from './components/ContactListItem';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 
-import contactsOperations from './redux/contacts/contacts-operations';
+import { fetchContacts } from './redux/contacts/contacts-operations';
 
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -46,7 +46,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchItems: () => dispatch(contactsOperations.fetchContacts()),
+  fetchItems: () => dispatch(fetchContacts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

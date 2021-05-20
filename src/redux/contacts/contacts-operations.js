@@ -9,12 +9,11 @@ import {
   fetchContactRequest,
   fetchContactSuccess,
   fetchContactError,
-  // addFilter,
 } from './contacts-actions';
 
 axios.defaults.baseURL = 'http://localhost:3001';
 
-const fetchContacts = () => async dispatch => {
+export const fetchContacts = () => async dispatch => {
   dispatch(fetchContactRequest);
 
   try {
@@ -23,14 +22,9 @@ const fetchContacts = () => async dispatch => {
   } catch (error) {
     dispatch(fetchContactError(error));
   }
-
-  // axios
-  // .get('/contacts')
-  // .then(({ data }) => dispatch(fetchContactSuccess(data)))
-  // .catch(error => dispatch(fetchContactError(error)));
 };
 
-const addContact = ({ name, number }) => dispatch => {
+export const addContact = ({ name, number }) => dispatch => {
   const contact = {
     name,
     number,
@@ -44,17 +38,10 @@ const addContact = ({ name, number }) => dispatch => {
     .catch(error => dispatch(addContactError(error)));
 };
 
-const removeContact = contactID => dispatch => {
+export const removeContact = contactID => dispatch => {
   dispatch(removeContactRequest());
   axios
     .delete(`/contacts/${contactID}`)
     .then(() => dispatch(removeContactSuccess(contactID)))
     .catch(error => dispatch(removeContactError(error)));
-};
-
-export default {
-  fetchContacts,
-  addContact,
-  removeContact,
-  fetchContacts,
 };
