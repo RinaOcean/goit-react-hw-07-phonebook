@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { addContact } from '../../redux/contacts/contacts-operations';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { getItems } from '../../redux/contacts/contacts-selectors';
+
 import './ContactForm.scss';
 
 class ContactForm extends Component {
@@ -74,7 +76,7 @@ class ContactForm extends Component {
   }
 }
 const mapStateToProps = state => ({
-  items: state.contacts.items,
+  items: getItems(state),
 });
 
 const mapDispatchFromProps = dispatch => ({

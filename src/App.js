@@ -8,6 +8,7 @@ import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 
 import { fetchContacts } from './redux/contacts/contacts-operations';
+import { getItems, getLoadingItems } from './redux/contacts/contacts-selectors';
 
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,8 +42,8 @@ class App extends Component {
   }
 }
 const mapStateToProps = state => ({
-  items: state.contacts.items,
-  isLoading: state.contacts.loading,
+  items: getItems(state),
+  isLoading: getLoadingItems(state),
 });
 
 const mapDispatchToProps = dispatch => ({
