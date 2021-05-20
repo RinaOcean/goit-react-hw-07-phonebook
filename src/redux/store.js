@@ -1,8 +1,4 @@
-import {
-  // combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import {
   // persistStore,
@@ -15,7 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage';
-import contactsReducer from './contacts/contacts-reducer';
+import contactsReducer from './contacts';
 
 // const contactsPersistConfig = {
 //   key: 'contacts',
